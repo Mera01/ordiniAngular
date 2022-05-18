@@ -6,7 +6,7 @@ import { ListOrdersComponent } from './list-orders/list-orders.component';
 const routes: Routes = [
   {path: "", redirectTo: 'list-orders', pathMatch: 'full'},
   {path: 'list-orders', component: ListOrdersComponent,},
-  {path: 'create-orders', component: CreateOrderComponent,},
+  {path: 'create-order', component: CreateOrderComponent,},
 ];
 
 @NgModule({
