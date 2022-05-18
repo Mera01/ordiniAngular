@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ListOrdersComponent } from './list-orders/list-orders.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListOrdersComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    ErrorMessageComponent
 
   ],
   imports: [

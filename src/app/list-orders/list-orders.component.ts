@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ErrorMessageService } from '../error-message.service';
+
 
 @Component({
   selector: 'app-list-orders',
@@ -8,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListOrdersComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  list : Array<any> = new Array();
+
+  constructor(private httpClient: HttpClient , private  messageService : ErrorMessageService) { }
 
   ngOnInit(): void {
     this.httpClient.get('http://localhost:3000/orders').subscribe(response => {
-    console.log("server response");
-    console.log(response);
-  })
+      this.list = response as  Array<any>
+    },
+      responseError =>{
+      this.messageService.error("errore ricerca ordini")
+      })
 }
 
 }
