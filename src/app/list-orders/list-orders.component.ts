@@ -11,7 +11,7 @@ export class ListOrdersComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient.get('http://localhost:3000/orders%27').subscribe(response => {
+    this.httpClient.get('http://localhost:3000/orders').subscribe(response => {
     console.log("server response");
     console.log(response);
   })
