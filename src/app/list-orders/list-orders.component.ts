@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListOrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-  }
+    this.httpClient.get('http://localhost:3000/orders%27').subscribe(response => {
+    console.log("server response");
+    console.log(response);
+  })
+}
 
 }
