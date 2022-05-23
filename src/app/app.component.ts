@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend-ordini';
+
+
+  constructor(private authService: AuthService,private router: Router){
+    this.authService.userSubject.subscribe(token => {
+      if(token){
+        this.router.navigate(['/'])
+      }
+      else{
+        this.router.navigate(['/login'])
+      }
+    })
+  }
+
 }

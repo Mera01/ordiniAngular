@@ -1,0 +1,25 @@
+<div class="position-absolute top-50 start-50 translate-middle">
+<form (ngSubmit)="login()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" [(ngModel)]="user.username" name="username" #username="ngModel"  aria-describedby="emailHelp" required>
+
+    <ng-container *ngIf="username?.invalid">
+      <span *ngIf="username.errors?.['required']" class="alert text-danger" >
+      Inserire usernmae.
+      </span>
+    </ng-container>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control"  [(ngModel)]="user.password"  name="password"    #password="ngModel"  required >
+    <ng-container *ngIf="password?.invalid">
+      <span *ngIf="password.errors?.['required']" class="alert text-danger"  >
+      Inserire password.
+      </span>
+    </ng-container>
+  </div>
+  <button [disabled]="username.invalid || password.invalid"    class="btn btn-primary">Submit</button>
+  <p  class="alert text-danger"  > {{errorelogin}}</p>
+</form>
+</div>
